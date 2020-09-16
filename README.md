@@ -2,70 +2,15 @@
 I do *not* take responsibility for what may happen to your system. This is at your own risk.
 
 # Windows10Debloater
-
 Script/Utility/Application to debloat Windows 10
 
-# How To Run the Windows10Debloater.ps1 and the Windows10DebloaterGUI.ps1 files
 
-There are different methods of running the PowerShell script. The methods are as follows:
+# How to run Windows10Debloater
+-	Close all other applications.
+-	Run launch.bat as admin.
 
-First Method:
-
-1) Download the .zip file on the main page of the github and extract the .zip file to your desired location
-2) Once extracted, open PowerShell (or PowerShell ISE) as an Administrator
-3) Enable PowerShell execution
-<code>Set-ExecutionPolicy Unrestricted -Force</code>
-4) On the prompt, change to the directory where you extracted the files:
-  e.g. - `cd c:\temp`
-5) Next, to run either script, enter in the following:
-  e.g. - `.\Windows10DebloaterGUI.ps1`
-
-
-Second Method:
-
-1) Download the .zip file on the main page of the github and extract the .zip file to your desired location
-2) Right click the PowerShell file that you'd like to run and click on "Run With PowerShell"
-3) This will allow the script to run without having to do the above steps but Powershell will ask if you're sure you want to run this script.
-
-Remember this script NEEDS to be run as admin in order to function properly.
-
-
-# How To Run the Windows10SysPrepDebloater.ps1 file
-
-For the WindowsSysPrepDebloater.ps1 file, there are a couple of parameters that you can run so that you can specify which functions are used. The parameters are:
-`-SysPrep, -Debloat`. 
-
-To run this with parameters, do the following:
-
-1) Download the .zip file on the main page of the github and extract the .zip file to your desired location
-2) Once extracted, open PowerShell (or PowerShell ISE) as an Administrator
-3) On the prompt, change to the directory where you extracted the files:
-  e.g. - `cd c:\temp`
-4) Next, to run either script, enter in the following:
-  e.g. - `.\Windows10SysPrepDebloater.ps1 -Sysprep, -Debloat -Privacy`
-
-
-# Sysprep, Interactive, and GUI Application
-
-There are now 3 versions of my Windows10Debloater - There is an interactive version, a GUI app version, and a pure silent version.
-
-Windows10SysPrepDebloater.ps1 - The silent version now utilizes the switch parameters: -Sysprep, -Debloat -Privacy. The silent version can be useful for deploying MDT Images/sysprepping or any other way you deploy Windows 10. This will work to remove the bloatware during the deployment process.
-
-Windows10Debloater.ps1 - This interactive version is what it implies - a Windows10Debloater script with interactive prompts. This one should not be used for deployments that require a silent script with optional parameters. This script gives you choices with prompts as it runs so that you can make the choices of what the script does.
-
-Windows10DebloaterGUI.ps1 There is now a GUI Application named Windows10DebloaterGUI.ps1 with buttons to perform all of the functions that the scripts do. This is better for the average user who does not want to work with code, or if you'd prefer to just see an application screen. 
-
-# Switch Parameters
-
-There are 3 switch parameters in the Windows10SysPrepDebloater.ps1 script.
-
-The first one is -SysPrep, which runs the command within a function: get-appxpackage | remove-appxpackage. This is useful since some administrators need that command to run first in order for machines to be able to properly provision the apps for removal.
-
-The second switch parameter is -Debloat, which does as it suggests. It runs the following functions: Start-Debloat, Remove-Keys, and Protect-Privacy.
-
-Remove-Keys removes registry keys leftover that are associated with the bloatware apps listed above, but not removed during the Start-Debloat function.
-
-Third, Protect-Privacy adds and/or changes registry keys to stop some telemetry functions, stops Cortana from being used as your Search Index, disables "unneccessary" scheduled tasks, and more.
+## Warning
+If you do not run this script as administrator, it can cause unnecessary breaks in the system.
 
 # This script will remove the bloatware from Windows 10 when using Remove-AppXPackage/Remove-AppXProvisionedPackage, and then delete specific registry keys that are were not removed beforehand. For best results, this script should be ran before a user profile is configured, otherwise you will likely see that apps that should have been removed will remain, and if they are removed you will find broken tiles on the start menu.
 
@@ -168,10 +113,6 @@ Xbox Game CallableUI,
 Xbox Identity Provider,
 Zune Music,
 Zune Video.
-
-# Quick download link
-
-`iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/debloat'))`
 
 # Credits
 
