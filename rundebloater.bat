@@ -1,2 +1,0 @@
-@echo off
-debloaterscript.exe -pP7PCLQftdbjXLtUmXdbtd64njuUEUfCNGmUNCaUBHn4TahwbbH32Aq7FuaJEqYxq
