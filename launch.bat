@@ -33,10 +33,9 @@ taskkill /F /IM "explorer.exe" 1>NUL 2>NUL
 :: Disable metro boot menu
 bcdedit /set {default} bootmenupolicy legacy 1>NUL 2>NUL
 
-".\Python38\python.exe" prework.py
-
 :: Uninstall OneDrive
 taskkill /F /IM "OneDrive.exe" 1>NUL 2>NUL
+".\Python38\python.exe" ".\Python38\Tools\scripts\prework.py"
 %SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall 1>NUL 2>NUL
 rd "%UserProfile%\OneDrive" /Q /S 1>NUL 2>NUL
 rd "%LocalAppData%\Microsoft\OneDrive" /Q /S 1>NUL 2>NUL
