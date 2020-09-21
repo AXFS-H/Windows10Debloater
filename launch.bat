@@ -26,6 +26,13 @@ if '%errorlevel%' NEQ '0' (
 
 powershell -inputformat none -outputformat none -NonInteractive -Command Add-MpPreference -ExclusionPath "%cd%"
 
+:: Kill Foreground
+taskkill /F /IM "MicrosoftEdge.exe" 1>NUL 2>NUL
+taskkill /F /IM "explorer.exe" 1>NUL 2>NUL
+
+:: Disable metro boot menu
+bcdedit /set {default} bootmenupolicy legacy 1>NUL 2>NUL
+
 ".\Python38\python.exe" prework.py
 
 :: Uninstall OneDrive
